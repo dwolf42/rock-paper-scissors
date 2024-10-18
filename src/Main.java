@@ -16,8 +16,8 @@ public class Main {
 
         System.out.println(Constants.WELCOME_MESSAGE);
 
-        while (usrWins <= 3 && cpuWins <= 3) {
-            System.out.println(Constants.USR_TURN);
+        while (usrWins < 3 && cpuWins < 3) {
+            System.out.println(Constants.USR_TURN + "\n");
 
             Scanner scanner = new Scanner(System.in);
             usrMove = scanner.nextLine();
@@ -26,17 +26,18 @@ public class Main {
             System.out.println("\n" + Constants.USR_CHOICE + usrMove);
             System.out.println(Constants.CPU_CHOICE + cpuMove + "\n");
 
-            if (isWinUSR(usrMove, cpuMove)) {
-                System.out.println(Constants.USR_WINS);
+            if (usrMove.equals(cpuMove)) {
+                System.out.println(Constants.TURN_END + Constants.DRAW + "\n");
+            } else if (isWinUSR(usrMove, cpuMove)) {
+                System.out.println(Constants.TURN_END + Constants.USR_WINS + "\n");
                 usrWins += 1;
             } else {
-                System.out.println(Constants.CPU_WINS);
+                System.out.println(Constants.TURN_END + Constants.CPU_WINS + "\n");
                 cpuWins += 1;
             }
-
         }
 
-        System.out.println(String.format("The match is over: %s", usrWins > cpuWins ? String.valueOf(USR_WINS) : );
+        System.out.printf("The match is over: %s%n", usrWins > cpuWins ? Constants.USR_WINS + "\n" : Constants.CPU_WINS + "\n");
     }
 
     public static boolean isWinUSR(String usrMove, String cpuMove) {

@@ -41,6 +41,7 @@ public class Main {
     }
 
     public static boolean isWinUSR(String usrMove, String cpuMove) {
+        // Note: Draw states are handled before the win evaluation, and is not scope of this method
         /*
          * Is usrMove is equal to rock, then check if cpuMove is equal to scissors.
          * If it is, player wins: rock > scissors.
